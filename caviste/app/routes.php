@@ -15,9 +15,19 @@ use Monolog\Handler\StreamHandler;
 
 return function (App $app) {    
     $app->get('/', function (Request $request, Response $response) {
-        //var_dump($request);
-        $response->getBody()->write('Géniaaal!');
-        return $response;
+        //var_dump($this->get('view'));die;
+
+        $title = 'Liste des vins';
+        $data = "Bonjour avec Twig! Et ça marche!";
+
+        $vin = R::dispense('wine');
+
+        return $this->get('view')->render($response, 'Wine/index.html.twig', [
+            'title' => $title,
+            'data' => $data,
+            'vin' => $vin,
+            
+        ]);;
     });
     
     $app->get('/api/wines', function(Request $request, Response $response) {
