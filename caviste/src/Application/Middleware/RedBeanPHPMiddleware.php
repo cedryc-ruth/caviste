@@ -17,7 +17,7 @@ class RedBeanPHPMiddleware {
     public function __invoke(Request $request, RequestHandler $handler) {
         //AVANT
         //Se connecter au serveur de DB
-        R::setup('mysql:host=localhost;dbname=cellar', 'root', 'root');
+        R::setup('mysql:host=localhost;dbname=cellar', 'root', 'mysql');
         
         $response = $handler->handle($request);
         
