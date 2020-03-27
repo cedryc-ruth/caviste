@@ -15,7 +15,7 @@ use Monolog\Handler\StreamHandler;
 
 return function (App $app) {    
     $app->get('/', function (Request $request, Response $response) {
-        var_dump($request);
+        //var_dump($request);
         $response->getBody()->write('Géniaaal!');
         return $response;
     });
