@@ -10,6 +10,7 @@ class BaseController{
 
     protected $c;
     public function __construct(ContainerInterface $container){
+        $this->c = $container;
 
     }
 }
