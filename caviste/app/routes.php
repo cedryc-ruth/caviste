@@ -12,13 +12,14 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use App\Application\Middleware\CorsMiddleware;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+use App\Application\Controllers\WineController;
 
 return function (App $app) {    
-    $app->get('/', function (Request $request, Response $response) {
-        //var_dump($request);
-        $response->getBody()->write('Géniaaal!');
-        return $response;
-    });
+    define( 'REDBEAN_MODEL_PREFIX', 'App\\Application\\Models');
+   
+      
+    $app->get('/', WineController::class.':index');
+    $app->get('/show/{id}', WineController::class.':show');
     
     $app->get('/api/wines', function(Request $request, Response $response) {
         //Récupérer les données de la BD  

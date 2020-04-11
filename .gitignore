@@ -1,0 +1,6 @@
+.idea/
+/caviste/coverage/
+/caviste/cache/
+/caviste/vendor/
+/caviste/logs/*
+!/logs/README.md
